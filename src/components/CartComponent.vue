@@ -28,18 +28,19 @@ defineEmits(['hide-cart', 'increment-book', 'decrement-book']);
           <td>
             <div class="cart-item-quantity">
               <button class="plain">
-                <span class="mdi mdi-minus" />
+                <span class="mdi mdi-minus"/>
               </button>
               {{ book.quantity }}
-              <button class="plain">
-                <span class="mdi mdi-plus" />
+              <button @click="$emit('increment-book', book)" class="plain">
+
+                <span class="mdi mdi-plus"/>
               </button>
             </div>
           </td>
           <td>
              <div class="cart-item-quantity">
                 <button @click="decrementBookToCart(book)" class="plain">
-                  <span class="mdi mdi-minus" />
+                  <span class="mdi mdi-minus"/>
                 </button>
                 {{ book.quantity }}
                 <button @click="incrementBookToCart(book)" class="plain">
@@ -54,7 +55,9 @@ defineEmits(['hide-cart', 'increment-book', 'decrement-book']);
         </tr>
       </tbody>
     </table>
-    <button @click="showCart = false" class="outlined">Voltar para loja</button>
+    <button @click="$emit('hide-cart')" class="outlined">
+      Voltar para loja
+    </button>
     <div class="cart-summary">
       <div class="cupom">
         <input type="text" placeholder="Código do cupom" />

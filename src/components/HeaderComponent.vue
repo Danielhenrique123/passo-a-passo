@@ -38,7 +38,8 @@ defineEmits(['click-cart']);
     </ul>
 
     <ul class="icons">
-       <li @click="showCart = !showCart"><span class="mdi mdi-cart"></span></li>
+      <li @click="$emit('click-cart')"><span class="mdi mdi-cart"></span></li>
+
        <li><span class="mdi mdi-heart"></span></li>
        <li><span class="mdi mdi-account"></span></li>
 
